@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الوظائف | AMTC - أوتاد المنارات المتقدمة</title>
+    <meta name="description" content="انضم إلى فريق شركة أوتاد المنارات المتقدمة AMTC وكن جزءاً من النجاح.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .careers-hero {
+            background: linear-gradient(135deg, var(--dark), var(--dark-light));
+            padding: 160px 0 60px;
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .careers-hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+        }
+        
+        .careers-hero h1 span {
+            color: var(--primary);
+        }
+        
+        .careers-hero p {
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 12px auto 0;
+        }
+        
+        .careers-content {
+            padding: 60px 0;
+        }
+        
+        .why-join {
+            background: var(--light);
+            padding: 60px 0;
+        }
+        
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .why-item {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .why-item:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .why-item .icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        
+        .why-item h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+        
+        .why-item p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        
+        .jobs-list {
+            margin-top: 40px;
+        }
+        
+        .job-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+            padding: 24px 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 16px;
+            transition: var(--transition);
+            border-right: 4px solid var(--primary);
+        }
+        
+        .job-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateX(-4px);
+        }
+        
+        .job-card .info h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .job-card .info .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 4px;
+        }
+        
+        .job-card .info .meta span {
+            font-size: 13px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .job-card .info .meta span i {
+            color: var(--primary);
+        }
+        
+        .job-card .btn {
+            flex-shrink: 0;
+        }
+        
+        .job-card.closed {
+            opacity: 0.6;
+            border-right-color: #ccc;
+        }
+        
+        .job-card.closed .btn {
+            background: #ccc;
+            border-color: #ccc;
+            cursor: not-allowed;
+        }
+        
+        /* Application Form */
+        .application-form {
+            background: var(--light);
+            padding: 60px 0;
+        }
+        
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+        
+        .form-container h2 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--dark);
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        
+        .form-container h2 span {
+            color: var(--primary);
+        }
+        
+        .form-container .sub {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+        
+        .form-group label .required {
+            color: #e74c3c;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-family: var(--font-ar);
+            font-size: 15px;
+            transition: var(--transition);
+            background: var(--white);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.1);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-group .file-input {
+            padding: 10px;
+            border: 2px dashed #e5e7eb;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .form-group .file-input:hover {
+            border-color: var(--primary);
+        }
+        
+        .form-group .file-input input {
+            display: none;
+        }
+        
+        .form-group .file-input .file-label {
+            display: block;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        
+        .form-group .file-input .file-label i {
+            font-size: 32px;
+            display: block;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        
+        .form-group .file-input .file-name {
+            display: block;
+            font-size: 13px;
+            color: var(--primary);
+            margin-top: 4px;
+        }
+        
+        .form-group .btn {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        @media (max-width: 768px) {
+            .careers-hero h1 {
+                font-size: 30px;
+            }
+            
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .job-card {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+                padding: 20px;
+            }
+            
+            .job-card .info .meta {
+                justify-content: center;
+            }
+            
+            .job-card .btn {
+                margin-top: 12px;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .form-container {
+                padding: 24px;
+            }
+            
+            .form-container h2 {
+                font-size: 22px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="AMTC" class="logo-img">
+                        <div class="logo-text">
+                            <span class="logo-title">AMTC</span>
+                            <span class="logo-sub">أوتاد المنارات المتقدمة</span>
+                        </div>
+                    </a>
+                </div>
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="projects.html">المشاريع</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="careers.html" class="active">الوظائف</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="lang-switcher">
+                    <a href="#" class="active">AR</a><span>|</span><a href="#">EN</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- HERO -->
+    <section class="careers-hero">
+        <div class="container">
+            <span class="section-tag">الوظائف</span>
+            <h1>انضم إلى <span>فريقنا</span></h1>
+            <p>كن جزءاً من عائلة AMTC وشارك في بناء مستقبل أكثر إشراقاً</p>
+        </div>
+    </section>
+    
+    <!-- WHY JOIN -->
+    <section class="why-join">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">لماذا تنضم إلينا</span>
+                <h2 class="section-title">بيئة عمل <span>ملهمة</span></h2>
+                <p class="section-desc">نوفر بيئة عمل محفزة تتيح لك التطور والنمو المهني</p>
+            </div>
+            
+            <div class="why-grid">
+                <div class="why-item">
+                    <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h4>تطوير مهني</h4>
+                    <p>برامج تدريبية مستمرة وفرص للتطور والنمو المهني</p>
+                </div>
+                <div class="why-item">
+                    <div class="icon"><i class="fas fa-users"></i></div>
+                    <h4>فريق متميز</h4>
+                    <p>العمل مع فريق من الخبراء والمهنيين في بيئة تعاونية</p>
+                </div>
+                <div class="why-item">
+                    <div class="icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h4>مزايا تنافسية</h4>
+                    <p>حزمة مزايا متكاملة تشمل التأمين الصحي والمكافآت السنوية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- JOBS LIST -->
+    <section class="careers-content">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">الوظائف الشاغرة</span>
+                <h2 class="section-title">فرص <span>العمل</span></h2>
+                <p class="section-desc">اكتشف الفرص المتاحة وانضم إلى فريقنا المتميز</p>
+            </div>
+            
+            <div class="jobs-list">
+                <!-- Job 1 -->
+                <div class="job-card">
+                    <div class="info">
+                        <h3>مهندس إنارة - Senior Lighting Engineer</h3>
+                        <div class="meta">
+                            <span><i class="fas fa-map-marker-alt"></i> الرياض</span>
+                            <span><i class="fas fa-clock"></i> دوام كامل</span>
+                            <span><i class="fas fa-calendar-alt"></i> تاريخ النشر: 15/06/2026</span>
+                        </div>
+                    </div>
+                    <a href="#application" class="btn btn-primary btn-sm">تقديم الآن</a>
+                </div>
+                
+                <!-- Job 2 -->
+                <div class="job-card">
+                    <div class="info">
+                        <h3>فني إنتاج - Production Technician</h3>
+                        <div class="meta">
+                            <span><i class="fas fa-map-marker-alt"></i> الرياض</span>
+                            <span><i class="fas fa-clock"></i> دوام كامل</span>
+                            <span><i class="fas fa-calendar-alt"></i> تاريخ النشر: 14/06/2026</span>
+                        </div>
+                    </div>
+                    <a href="#application" class="btn btn-primary btn-sm">تقديم الآن</a>
+                </div>
+                
+                <!-- Job 3 -->
+                <div class="job-card">
+                    <div class="info">
+                        <h3>مشرف مشاريع - Projects Supervisor</h3>
+                        <div class="meta">
+                            <span><i class="fas fa-map-marker-alt"></i> جدة</span>
+                            <span><i class="fas fa-clock"></i> دوام كامل</span>
+                            <span><i class="fas fa-calendar-alt"></i> تاريخ النشر: 12/06/2026</span>
+                        </div>
+                    </div>
+                    <a href="#application" class="btn btn-primary btn-sm">تقديم الآن</a>
+                </div>
+                
+                <!-- Job 4 (Closed) -->
+                <div class="job-card closed">
+                    <div class="info">
+                        <h3>مسؤول مبيعات - Sales Executive</h3>
+                        <div class="meta">
+                            <span><i class="fas fa-map-marker-alt"></i> الدمام</span>
+                            <span><i class="fas fa-clock"></i> دوام كامل</span>
+                            <span><i class="fas fa-calendar-alt"></i> تاريخ النشر: 01/06/2026</span>
+                            <span><i class="fas fa-times-circle" style="color:#e74c3c;"></i> انتهى التقديم</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm" disabled>مغلق</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- APPLICATION FORM -->
+    <section class="application-form" id="application">
+        <div class="container">
+            <div class="form-container">
+                <h2>قدم على <span>الوظيفة</span></h2>
+                <p class="sub">املأ النموذج التالي وسنتواصل معك في أقرب وقت</p>
+                
+                <form id="careerForm" action="#" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>الوظيفة المطلوبة <span class="required">*</span></label>
+                        <select required>
+                            <option value="">اختر الوظيفة</option>
+                            <option>مهندس إنارة - Senior Lighting Engineer</option>
+                            <option>فني إنتاج - Production Technician</option>
+                            <option>مشرف مشاريع - Projects Supervisor</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>الاسم الكامل <span class="required">*</span></label>
+                        <input type="text" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>البريد الإلكتروني <span class="required">*</span></label>
+                        <input type="email" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>رقم الجوال <span class="required">*</span></label>
+                        <input type="tel" placeholder="أدخل رقم جوالك" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>المدينة</label>
+                        <input type="text" placeholder="المدينة التي تقيم فيها">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>الخبرات السابقة</label>
+                        <textarea placeholder="اكتب خبراتك السابقة والمهارات التي تمتلكها..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>السيرة الذاتية <span class="required">*</span></label>
+                        <div class="file-input" id="fileInput">
+                            <input type="file" accept=".pdf,.doc,.docx" id="cvFile" required>
+                            <label for="cvFile" class="file-label">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                اضغط هنا لرفع السيرة الذاتية
+                                <span class="file-name" id="fileName"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> إرسال الطلب
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="AMTC">
+                        <span>AMTC</span>
+                    </div>
+                    <p>شركة أوتاد المنارات المتقدمة (AMTC) متخصصة في تصنيع وتوريد أعمدة الإنارة وملحقاتها.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="projects.html">المشاريع</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="careers.html">الوظائف</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>منتجاتنا</h4>
+                    <ul>
+                        <li><a href="products.html">أعمدة إنارة فولاذية</a></li>
+                        <li><a href="products.html">أبراج إنارة عالية</a></li>
+                        <li><a href="products.html">كابات إنارة</a></li>
+                        <li><a href="products.html">قواعد وملحقات</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>تواصل معنا</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i><span>الرياض، السعودية</span></li>
+                        <li><i class="fas fa-phone-alt"></i><span>+966 12 345 6789</span></li>
+                        <li><i class="fab fa-whatsapp"></i><span>+966 50 123 4567</span></li>
+                        <li><i class="fas fa-envelope"></i><span>info@amtc.com.sa</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>AMTC</strong> - جميع الحقوق محفوظة.</p>
+                <p>تصميم وتطوير <span>AMTC Team</span></p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/script.js"></script>
+    <script>
+        // File input handler
+        document.getElementById('cvFile').addEventListener('change', function(e) {
+            const fileName = this.files[0] ? this.files[0].name : '';
+            document.getElementById('fileName').textContent = fileName;
+        });
+        
+        // Form submission
+        document.getElementById('careerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('✅ تم استلام طلبك بنجاح! سنتواصل معك قريباً.');
+            this.reset();
+            document.getElementById('fileName').textContent = '';
+        });
+    </script>
+</body>
+</html>

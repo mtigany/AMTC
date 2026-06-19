@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا | AMTC - أوتاد المنارات المتقدمة</title>
+    <meta name="description" content="تواصل مع شركة أوتاد المنارات المتقدمة AMTC للاستفسارات، طلبات العروض، والدعم الفني.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .contact-hero {
+            background: linear-gradient(135deg, var(--dark), var(--dark-light));
+            padding: 160px 0 60px;
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .contact-hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+        }
+        
+        .contact-hero h1 span {
+            color: var(--primary);
+        }
+        
+        .contact-hero p {
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 12px auto 0;
+        }
+        
+        .contact-section {
+            padding: 60px 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-content: start;
+        }
+        
+        .contact-info-item {
+            background: var(--white);
+            padding: 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .contact-info-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .contact-info-item .icon {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .contact-info-item h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .contact-info-item p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
+        
+        .contact-info-item a {
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .contact-info-item a:hover {
+            color: var(--primary-dark);
+        }
+        
+        .contact-form-container {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-form-container h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+        
+        .contact-form-container h2 span {
+            color: var(--primary);
+        }
+        
+        .contact-form-container .sub {
+            color: var(--text-light);
+            margin-bottom: 24px;
+            font-size: 15px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        
+        .form-group {
+            margin-bottom: 16px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+        
+        .form-group label .required {
+            color: #e74c3c;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-family: var(--font-ar);
+            font-size: 15px;
+            transition: var(--transition);
+            background: #fafafa;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.1);
+            background: var(--white);
+        }
+        
+        .form-group textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+        
+        .form-group .btn {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        /* Map */
+        .map-section {
+            padding-bottom: 60px;
+        }
+        
+        .map-container {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 350px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            border-right: 4px solid #28a745;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-hero h1 {
+                font-size: 30px;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form-container {
+                padding: 24px;
+            }
+            
+            .contact-form-container h2 {
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="AMTC" class="logo-img">
+                        <div class="logo-text">
+                            <span class="logo-title">AMTC</span>
+                            <span class="logo-sub">أوتاد المنارات المتقدمة</span>
+                        </div>
+                    </a>
+                </div>
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="projects.html">المشاريع</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="careers.html">الوظائف</a></li>
+                        <li><a href="contact.html" class="active">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="lang-switcher">
+                    <a href="#" class="active">AR</a><span>|</span><a href="#">EN</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- HERO -->
+    <section class="contact-hero">
+        <div class="container">
+            <span class="section-tag">اتصل بنا</span>
+            <h1>نحن هنا <span>لخدمتك</span></h1>
+            <p>تواصل معنا للاستفسارات، طلبات العروض، أو أي دعم تحتاجه</p>
+        </div>
+    </section>
+    
+    <!-- CONTACT -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <div class="icon"><i class="fas fa-phone-alt"></i></div>
+                        <h4>الهاتف</h4>
+                        <p><a href="tel:+966123456789">+966 12 345 6789</a></p>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="icon"><i class="fab fa-whatsapp"></i></div>
+                        <h4>واتساب</h4>
+                        <p><a href="https://wa.me/966501234567">+966 50 123 4567</a></p>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <h4>البريد الإلكتروني</h4>
+                        <p><a href="mailto:info@amtc.com.sa">info@amtc.com.sa</a></p>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h4>المقر الرئيسي</h4>
+                        <p>الرياض، المملكة العربية السعودية</p>
+                    </div>
+                    <div class="contact-info-item" style="grid-column: span 2;">
+                        <div class="icon"><i class="fas fa-clock"></i></div>
+                        <h4>ساعات العمل</h4>
+                        <p>الأحد - الخميس: 8:00 صباحاً - 6:00 مساءً</p>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h2>أرسل <span>رسالتك</span></h2>
+                    <p class="sub">سنرد عليك في أقرب وقت ممكن</p>
+                    
+                    <div class="success-message" id="successMessage">
+                        <i class="fas fa-check-circle"></i> ✅ تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.
+                    </div>
+                    
+                    <form id="contactForm" action="#" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>الاسم الكامل <span class="required">*</span></label>
+                                <input type="text" id="fullName" placeholder="أدخل اسمك" required>
+                            </div>
+                            <div class="form-group">
+                                <label>البريد الإلكتروني <span class="required">*</span></label>
+                                <input type="email" id="email" placeholder="بريدك الإلكتروني" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>رقم الجوال</label>
+                                <input type="tel" id="phone" placeholder="رقم جوالك">
+                            </div>
+                            <div class="form-group">
+                                <label>نوع الطلب</label>
+                                <select id="subject">
+                                    <option value="">اختر نوع الطلب</option>
+                                    <option>استفسار عن منتج</option>
+                                    <option>طلب عرض سعر</option>
+                                    <option>استشارة فنية</option>
+                                    <option>طلب صيانة</option>
+                                    <option>توظيف</option>
+                                    <option>أخرى</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>عنوان الرسالة <span class="required">*</span></label>
+                            <input type="text" id="subjectText" placeholder="عنوان رسالتك" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>الرسالة <span class="required">*</span></label>
+                            <textarea id="message" placeholder="اكتب رسالتك هنا..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> إرسال الرسالة
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- MAP -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28955.95865715933!2d46.6862745!3d24.717633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f0175ad3c75f3%3A0x7f8a8f8a8f8a8f8a!2sRiyadh%20Saudi%20Arabia!5e0!3m2!1sen!2seg!4v1700000000000" 
+                    allowfullscreen 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="AMTC">
+                        <span>AMTC</span>
+                    </div>
+                    <p>شركة أوتاد المنارات المتقدمة (AMTC) متخصصة في تصنيع وتوريد أعمدة الإنارة وملحقاتها.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="projects.html">المشاريع</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="careers.html">الوظائف</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>منتجاتنا</h4>
+                    <ul>
+                        <li><a href="products.html">أعمدة إنارة فولاذية</a></li>
+                        <li><a href="products.html">أبراج إنارة عالية</a></li>
+                        <li><a href="products.html">كابات إنارة</a></li>
+                        <li><a href="products.html">قواعد وملحقات</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>تواصل معنا</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i><span>الرياض، السعودية</span></li>
+                        <li><i class="fas fa-phone-alt"></i><span>+966 12 345 6789</span></li>
+                        <li><i class="fab fa-whatsapp"></i><span>+966 50 123 4567</span></li>
+                        <li><i class="fas fa-envelope"></i><span>info@amtc.com.sa</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>AMTC</strong> - جميع الحقوق محفوظة.</p>
+                <p>تصميم وتطوير <span>AMTC Team</span></p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/script.js"></script>
+    <script>
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const name = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subjectText').value;
+            const message = document.getElementById('message').value;
+            
+            // Validate
+            if (!name || !email || !subject || !message) {
+                alert('⚠️ يرجى ملء جميع الحقول المطلوبة.');
+                return;
+            }
+            
+            // Show success message
+            const successMsg = document.getElementById('successMessage');
+            successMsg.classList.add('show');
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success after 5 seconds
+            setTimeout(function() {
+                successMsg.classList.remove('show');
+            }, 5000);
+            
+            // Scroll to top of form
+            document.querySelector('.contact-form-container').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

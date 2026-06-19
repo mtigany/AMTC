@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المنتجات | AMTC - أوتاد المنارات المتقدمة</title>
+    <meta name="description" content="استعرض منتجات شركة أوتاد المنارات المتقدمة AMTC من أعمدة إنارة، أبراج، كابات، قواعد، وملحقات.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .products-hero {
+            background: linear-gradient(135deg, var(--dark), var(--dark-light));
+            padding: 160px 0 60px;
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .products-hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+        }
+        
+        .products-hero h1 span {
+            color: var(--primary);
+        }
+        
+        .products-hero p {
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 12px auto 0;
+        }
+        
+        .products-filter {
+            background: var(--white);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            position: sticky;
+            top: 80px;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+        
+        .filter-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+        
+        .filter-list button {
+            padding: 10px 24px;
+            border: 2px solid #e5e7eb;
+            border-radius: 50px;
+            background: transparent;
+            font-family: var(--font-ar);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-list button:hover,
+        .filter-list button.active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+        
+        .product-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 60px 0;
+        }
+        
+        .product-detail-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        
+        .product-detail-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .product-detail-card .image {
+            height: 240px;
+            overflow: hidden;
+            background: var(--light);
+        }
+        
+        .product-detail-card .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .product-detail-card:hover .image img {
+            transform: scale(1.05);
+        }
+        
+        .product-detail-card .body {
+            padding: 24px;
+        }
+        
+        .product-detail-card .body .category {
+            display: inline-block;
+            background: rgba(201, 168, 76, 0.1);
+            color: var(--primary);
+            padding: 2px 14px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .product-detail-card .body h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+        
+        .product-detail-card .body p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        
+        .product-detail-card .body .specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0 16px;
+        }
+        
+        .product-detail-card .body .specs span {
+            background: var(--light);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        .product-detail-card .body .btn {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .category-section {
+            margin-top: 40px;
+        }
+        
+        .category-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--primary);
+            display: inline-block;
+        }
+        
+        @media (max-width: 1024px) {
+            .product-detail-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .products-hero h1 {
+                font-size: 30px;
+            }
+            
+            .product-detail-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-list {
+                gap: 6px;
+            }
+            
+            .filter-list button {
+                padding: 6px 16px;
+                font-size: 12px;
+            }
+            
+            .products-filter {
+                top: 70px;
+                padding: 12px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="AMTC" class="logo-img">
+                        <div class="logo-text">
+                            <span class="logo-title">AMTC</span>
+                            <span class="logo-sub">أوتاد المنارات المتقدمة</span>
+                        </div>
+                    </a>
+                </div>
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="products.html" class="active">المنتجات</a></li>
+                        <li><a href="projects.html">المشاريع</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="careers.html">الوظائف</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="lang-switcher">
+                    <a href="#" class="active">AR</a><span>|</span><a href="#">EN</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- HERO -->
+    <section class="products-hero">
+        <div class="container">
+            <span class="section-tag">منتجاتنا</span>
+            <h1>أفضل حلول <span>الإنارة</span></h1>
+            <p>مجموعة متكاملة من منتجات الإنارة عالية الجودة لتلبية جميع احتياجات مشاريعكم</p>
+        </div>
+    </section>
+    
+    <!-- FILTER -->
+    <div class="products-filter">
+        <div class="container">
+            <div class="filter-list">
+                <button class="active" data-filter="all">الكل</button>
+                <button data-filter="poles">أعمدة إنارة</button>
+                <button data-filter="towers">أبراج إنارة</button>
+                <button data-filter="cables">كابات</button>
+                <button data-filter="bases">قواعد وملحقات</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PRODUCTS -->
+    <section class="products-detail">
+        <div class="container">
+            
+            <!-- Category: Poles -->
+            <div class="category-section" data-category="poles">
+                <h2 class="category-title">أعمدة الإنارة الفولاذية</h2>
+                <div class="product-detail-grid">
+                    <div class="product-detail-card">
+                        <div class="image"><img src="images/products/pole1.jpg" alt="عمود إنارة مخروطي"></div>
+                        <div class="body">
+                            <span class="category">أعمدة إنارة</span>
+                            <h3>عمود إنارة مخروطي</h3>
+                            <p>عمود فولاذي مخروطي الشكل بتصميم انسيابي يناسب جميع أنواع الإنارة.</p>
+                            <div class="specs">
+                                <span>ارتفاع: 6-12 م</span>
+                                <span>مادة: فولاذ مجلفن</span>
+                                <span>سمك: 3-6 مم</span>
+                            </div>
+                            <a href="contact.html" class="btn btn-primary btn-sm">اطلب عرض سعر</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-detail-card">
+                        <div class="image"><img src="images/products/pole2.jpg" alt="عمود إنارة أسطواني"></div>
+                        <div class="body">
+                            <span class="category">أعمدة إنارة</span>
+                            <h3>عمود إنارة أسطواني</h3>
+                            <p>عمود أسطواني متعدد الاستخدامات مثالي لإنارة الشوارع والطرق السريعة.</p>
+                            <div class="specs">
+                                <span>ارتفاع: 8-14 م</span>
+                                <span>مادة: فولاذ مجلفن</span>
+                                <span>قطر: 60-120 مم</span>
+                            </div>
+                            <a href="contact.html" class="btn btn-primary btn-sm">اطلب عرض سعر</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-detail-card">
+                        <div class="image"><img src="images/products/pole3.jpg" alt="عمود إنارة متعدد الأضلاع"></div>
+                        <div class="body">
+                            <span class="category">أعمدة إنارة</span>
+                            <h3>عمود إنارة متعدد الأضلاع</h3>
+                            <p>تصميم هندسي متطور يتحمل ظروف الطقس القاسية ورياح عالية السرعة.</p>
+                            <div class="specs">
+                                <span>ارتفاع: 10-16 م</span>
+                                <span>أضلاع: 8-16 ضلع</span>
+                                <span>مقاومة رياح: حتى 160 كم/س</span>
+                            </div>
+                            <a href="contact.html" class="btn btn-primary btn-sm">اطلب عرض سعر</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category: Towers -->
+            <div class="category-section" data-category="towers">
+                <h2 class="category-title">أبراج الإنارة العالية</h2>
+                <div class="product-detail-grid">
+                    <div class="product-detail-card">
+                        <div class="image"><img src="images/products/tower1.jpg" alt="برج إنارة 20م"></div>
+                        <div class="body">
+                            <span class="category">أبراج إنارة</span>
+                            <h3>برج إنارة 20 متر</h3>
+                            <p>برج إنارة عالي لتغطية المساحات الواسعة مثل الملاعب والميادين.</p>
+                            <div class="specs">
+                                <span>ارتفاع: 20 م</span>
+                                <span>عدد الأضواء: 4-8</span>
+                                <span>نظام: يدوي / كهربائي</span>
+                            </div>
+                            <a href="contact.html" class="btn btn-primary btn-sm">اطلب عرض سعر</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-detail-card">
+                        <div class="image"><img src="images/products/tower2.jpg" alt="برج إنارة 30م"></div>
+                        <div class="body">
+                            <span class="category">أبراج إنارة</span>
+                            <h3>برج إنارة 30 متر</h3>
+                            <p>برج إنارة عالي التحمل مزود بنظام رفع آمن وسهل الصيانة.</p>
+                            <div class="specs">
+                                <span>ارتفاع: 30 م</span>
+                                <span>عدد الأضواء: 6-12</span>
+                                <span>نظام رفع: كهربائي</span>
+                            </div>
+                            <a href="contact.html" class="btn btn-primary btn-sm">اطلب عرض سعر</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-detail-card">
+                        <div class="image"><img src="images/products/tower3.jpg" alt="برج إنارة 40م"></div>
+                        <div class="body">
+                            <span class="category">أبراج إنارة</span>
+                            <h3>برج إنارة 40 متر</h3>
+                            <p>أطول برج إنارة لدينا لتغطية المساحات الشاسعة والمشاريع الكبرى.</p>
+                            <div class="specs">
+                                <span>ارتفاع: 40 م</span>
+                                <span>عدد الأضواء: 8-16</span>
+                                <span>نظام: مؤازر كهربائي</span>
+                            </div>
+                            <a href="contact.html" class="btn btn-primary btn-sm">اطلب عرض سعر</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category: Cables -->
+            <div class="category-section" data-category="cables">
+                <h2 class="category-title">الكابات</h2>
+                <div class="product-detail-grid">
+                    <div class="product-detail-card">
+                        <div class="image"><img src="images/products/cable1.jpg" alt="كاب حديدي"></div>
+                        <div class="body">
+                            <span class="category">كابات</span>
+                            <h3>كاب حديدي</h3>
+                            <p>كاب حديدي متين لتثبيت أعمدة الإنارة في التربة الرملية والصخرية.</p>
+                            <div class="specs">
+                                <span>مادة: حديد مجلفن</span>
+                                <span>أطوال: 1-3 م</span>
+                                <span>مقاومة: عالية للصدأ</span>
+                            </div>
+                            <a href="contact.html" class="btn btn-primary btn-sm">اطلب عرض سعر</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-detail-card">
+                        <div class="image"><img src="images/products/cable2.jpg" alt="كاب خرساني"></div>
+                        <div class="body">
+                            <span class="category">كابات</span>
+                            <h3>كاب خرساني</h3>
+                            <p>كاب خرساني مسلح عالي الجودة لتحمل الأوزان الثقيلة والظروف القاسية.</p>
+                            <div class="specs">
+                                <span>مادة: خرسانة مسلحة</span>
+                                <span>أطوال: 1-4 م</span>
+                                <span>مقاومة: ضغط عالي</span>
+                            </div>
+                            <a href="contact.html" class="btn btn-primary btn-sm">اطلب عرض سعر</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-detail-card">
+                        <div class="image"><img src="images/products/cable3.jpg" alt="كاب متعدد الاستخدامات"></div>
+                        <div class="body">
+                            <span class="category">كابات</span>
+                            <h3>كاب متعدد الاستخدامات</h3>
+                            <p>كاب بتصميم مبتكر يناسب جميع أنواع التضاريس والظروف المناخية.</p>
+                            <div class="specs">
+                                <span>مادة: حديد + خرسانة</span>
+                                <span>أطوال: حسب الطلب</span>
+                                <span>تصميم: مقاوم للزلازل</span>
+                            </div>
+                            <a href="contact.html" class="btn btn-primary btn-sm">اطلب عرض سعر</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category: Bases & Accessories -->
+            <div class="category-section" data-category="bases">
+                <h2 class="category-title">قواعد وملحقات</h2>
+                <div class="product-detail-grid">
+                    <div class="product-detail-card">
+                        <div class="image"><img src="images/products/base1.jpg" alt="قاعدة خرسانية"></div>
+                        <div class="body">
+                            <span class="category">قواعد وملحقات</span>
+                            <h3>قاعدة خرسانية مسلحة</h3>
+                            <p>قاعدة خرسانية متينة لتثبيت أعمدة الإنارة بكفاءة عالية.</p>
+                            <div class="specs">
+                                <span>مادة: خرسانة C30</span>
+                                <span>أحجام: متنوعة</span>
+                                <span>تسليح: حديد عالي الجودة</span>
+                            </div>
+                            <a href="contact.html" class="btn btn-primary btn-sm">اطلب عرض سعر</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-detail-card">
+                        <div class="image"><img src="images/products/base2.jpg" alt="فلنشات"></div>
+                        <div class="body">
+                            <span class="category">قواعد وملحقات</span>
+                            <h3>فلنشات تثبيت</h3>
+                            <p>فلنشات فولاذية لتثبيت الأعمدة على القواعد الخرسانية بسهولة.</p>
+                            <div class="specs">
+                                <span>مادة: فولاذ ST37</span>
+                                <span>أقطار: 200-600 مم</span>
+                                <span>طلاء: مجلفن</span>
+                            </div>
+                            <a href="contact.html" class="btn btn-primary btn-sm">اطلب عرض سعر</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-detail-card">
+                        <div class="image"><img src="images/products/base3.jpg" alt="أذرع وبراغي"></div>
+                        <div class="body">
+                            <span class="category">قواعد وملحقات</span>
+                            <h3>أذرع وبراغي تثبيت</h3>
+                            <p>مجموعة متكاملة من الأذرع والبراغي لتثبيت وحدات الإنارة على الأعمدة.</p>
+                            <div class="specs">
+                                <span>مواد: فولاذ مجلفن</span>
+                                <span>أحجام: متنوعة</span>
+                                <span>مقاومة: عالية للصدأ</span>
+                            </div>
+                            <a href="contact.html" class="btn btn-primary btn-sm">اطلب عرض سعر</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="AMTC">
+                        <span>AMTC</span>
+                    </div>
+                    <p>شركة أوتاد المنارات المتقدمة (AMTC) متخصصة في تصنيع وتوريد أعمدة الإنارة وملحقاتها.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="projects.html">المشاريع</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="careers.html">الوظائف</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>منتجاتنا</h4>
+                    <ul>
+                        <li><a href="products.html">أعمدة إنارة فولاذية</a></li>
+                        <li><a href="products.html">أبراج إنارة عالية</a></li>
+                        <li><a href="products.html">كابات إنارة</a></li>
+                        <li><a href="products.html">قواعد وملحقات</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>تواصل معنا</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i><span>الرياض، السعودية</span></li>
+                        <li><i class="fas fa-phone-alt"></i><span>+966 12 345 6789</span></li>
+                        <li><i class="fab fa-whatsapp"></i><span>+966 50 123 4567</span></li>
+                        <li><i class="fas fa-envelope"></i><span>info@amtc.com.sa</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>AMTC</strong> - جميع الحقوق محفوظة.</p>
+                <p>تصميم وتطوير <span>AMTC Team</span></p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/script.js"></script>
+    <script>
+        // Product Filter
+        const filterButtons = document.querySelectorAll('.filter-list button');
+        const categorySections = document.querySelectorAll('.category-section');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active from all buttons
+                filterButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.dataset.filter;
+                
+                categorySections.forEach(section => {
+                    const category = section.dataset.category;
+                    if (filter === 'all' || filter === category) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

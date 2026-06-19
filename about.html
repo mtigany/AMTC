@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>من نحن | AMTC - أوتاد المنارات المتقدمة</title>
+    <meta name="description" content="تعرف على شركة أوتاد المنارات المتقدمة AMTC، رؤيتنا، رسالتنا، وقيمنا في تصنيع وتوريد أعمدة الإنارة.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Additional styles for about page */
+        .about-hero {
+            background: linear-gradient(135deg, var(--dark), var(--dark-light));
+            padding: 160px 0 80px;
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .about-hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+        }
+        
+        .about-hero h1 span {
+            color: var(--primary);
+        }
+        
+        .about-hero p {
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 12px auto 0;
+            font-size: 18px;
+        }
+        
+        .about-full-content {
+            padding: 80px 0;
+        }
+        
+        .about-full-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+        
+        .about-full-content h2 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 16px;
+        }
+        
+        .about-full-content h2 span {
+            color: var(--primary);
+        }
+        
+        .about-full-content p {
+            color: var(--text-light);
+            line-height: 1.9;
+            margin-bottom: 16px;
+        }
+        
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .mv-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border-right: 4px solid var(--primary);
+        }
+        
+        .mv-card .icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        
+        .mv-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+        
+        .mv-card p {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .value-card .icon {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        
+        .value-card h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .value-card p {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+        
+        .certifications {
+            background: var(--light);
+            padding: 60px 0;
+        }
+        
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .cert-item {
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .cert-item i {
+            font-size: 48px;
+            color: var(--primary);
+        }
+        
+        .cert-item h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-top: 10px;
+        }
+        
+        .cert-item span {
+            font-size: 12px;
+            color: var(--text-light);
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 32px;
+            }
+            
+            .about-full-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+            
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cert-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="AMTC" class="logo-img">
+                        <div class="logo-text">
+                            <span class="logo-title">AMTC</span>
+                            <span class="logo-sub">أوتاد المنارات المتقدمة</span>
+                        </div>
+                    </a>
+                </div>
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html" class="active">من نحن</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="projects.html">المشاريع</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="careers.html">الوظائف</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+                <button class="menu-toggle" id="menuToggle" aria-label="القائمة">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="lang-switcher">
+                    <a href="#" class="active">AR</a><span>|</span><a href="#">EN</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- ===== ABOUT HERO ===== -->
+    <section class="about-hero">
+        <div class="container">
+            <span class="section-tag">من نحن</span>
+            <h1>شركة <span>أوتاد المنارات المتقدمة</span></h1>
+            <p>شريكك الموثوق في حلول الإنارة منذ أكثر من 25 عاماً</p>
+        </div>
+    </section>
+    
+    <!-- ===== ABOUT FULL CONTENT ===== -->
+    <section class="about-full-content">
+        <div class="container">
+            <div class="about-full-grid">
+                <div>
+                    <h2>رسالة <span>الشركة</span></h2>
+                    <p>
+                        تسعى شركة <strong>أوتاد المنارات المتقدمة (AMTC)</strong> إلى تقديم حلول إنارة مبتكرة وعالية الجودة 
+                        تلبي احتياجات عملائنا في المملكة العربية السعودية والخليج العربي. نلتزم بتوفير منتجات 
+                        متينة وموثوقة تساهم في تطوير البنية التحتية وتحسين جودة الحياة.
+                    </p>
+                    <p>
+                        منذ تأسيسنا، وضعنا نصب أعيننا تقديم أفضل المنتجات بأعلى معايير الجودة، مع الالتزام 
+                        بمواعيد التسليم وتقديم دعم فني متميز لعملائنا الكرام.
+                    </p>
+                    
+                    <h2 style="margin-top: 30px;">الرؤية <span>والقيم</span></h2>
+                    <p>
+                        <strong>رؤيتنا:</strong> أن نكون المورد الأول والأفضل في مجال أعمدة الإنارة وملحقاتها 
+                        في المنطقة، وأن نساهم في بناء مدن أكثر إشراقاً واستدامة.
+                    </p>
+                </div>
+                <div>
+                    <img src="images/about-full.jpg" alt="عن الشركة" style="width:100%; border-radius: var(--radius-lg); box-shadow: var(--shadow);">
+                </div>
+            </div>
+            
+            <!-- Mission & Vision Cards -->
+            <div class="mission-vision">
+                <div class="mv-card">
+                    <div class="icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>رسالتنا</h3>
+                    <p>
+                        تقديم منتجات إنارة عالية الجودة تلبي تطلعات عملائنا، مع الالتزام بالابتكار 
+                        والاستدامة والتميز في الخدمة.
+                    </p>
+                </div>
+                <div class="mv-card">
+                    <div class="icon"><i class="fas fa-eye"></i></div>
+                    <h3>رؤيتنا</h3>
+                    <p>
+                        الريادة في سوق حلول الإنارة في المنطقة، والمساهمة في بناء مستقبل أكثر إشراقاً 
+                        واستدامة للمجتمعات.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Values -->
+            <h2 style="text-align: center; margin-top: 60px; font-size: 32px; font-weight: 800;">
+                قيمنا <span>الجوهرية</span>
+            </h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-gem"></i></div>
+                    <h4>الجودة</h4>
+                    <p>نلتزم بأعلى معايير الجودة في جميع منتجاتنا</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-handshake"></i></div>
+                    <h4>الثقة</h4>
+                    <p>نبني علاقات دائمة مع عملائنا مبنية على الثقة</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-lightbulb"></i></div>
+                    <h4>الابتكار</h4>
+                    <p>نسعى دائماً لتقديم حلول مبتكرة ومتطورة</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-leaf"></i></div>
+                    <h4>الاستدامة</h4>
+                    <p>نلتزم بالممارسات المستدامة في عملياتنا</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== CERTIFICATIONS ===== -->
+    <section class="certifications">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">شهاداتنا</span>
+                <h2 class="section-title">شهادات <span>الجودة</span></h2>
+                <p class="section-desc">نفخر بحصولنا على شهادات الجودة المعتمدة دولياً</p>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-item">
+                    <i class="fas fa-certificate"></i>
+                    <h4>ISO 9001</h4>
+                    <span>نظام إدارة الجودة</span>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-certificate"></i>
+                    <h4>ISO 14001</h4>
+                    <span>الإدارة البيئية</span>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-certificate"></i>
+                    <h4>OHSAS 18001</h4>
+                    <span>الصحة والسلامة المهنية</span>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-award"></i>
+                    <h4>شهادة الجودة السعودية</h4>
+                    <span>هيئة المواصفات والمقاييس</span>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-trophy"></i>
+                    <h4>جائزة التميز الصناعي</h4>
+                    <span>2023 - 2024</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="AMTC">
+                        <span>AMTC</span>
+                    </div>
+                    <p>شركة أوتاد المنارات المتقدمة (AMTC) متخصصة في تصنيع وتوريد أعمدة الإنارة وملحقاتها بأعلى معايير الجودة.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="projects.html">المشاريع</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="careers.html">الوظائف</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>منتجاتنا</h4>
+                    <ul>
+                        <li><a href="products.html">أعمدة إنارة فولاذية</a></li>
+                        <li><a href="products.html">أبراج إنارة عالية</a></li>
+                        <li><a href="products.html">كابات إنارة</a></li>
+                        <li><a href="products.html">قواعد وملحقات</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>تواصل معنا</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i><span>الرياض، المملكة العربية السعودية</span></li>
+                        <li><i class="fas fa-phone-alt"></i><span>+966 12 345 6789</span></li>
+                        <li><i class="fab fa-whatsapp"></i><span>+966 50 123 4567</span></li>
+                        <li><i class="fas fa-envelope"></i><span>info@amtc.com.sa</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>AMTC</strong> - أوتاد المنارات المتقدمة. جميع الحقوق محفوظة.</p>
+                <p>تصميم وتطوير <span>AMTC Team</span></p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

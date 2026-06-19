@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخدمات | AMTC - أوتاد المنارات المتقدمة</title>
+    <meta name="description" content="نقدم خدمات متكاملة في تصنيع وتوريد أعمدة الإنارة، استشارات فنية، صيانة، وتوريد سريع.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .services-hero {
+            background: linear-gradient(135deg, var(--dark), var(--dark-light));
+            padding: 160px 0 60px;
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .services-hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+        }
+        
+        .services-hero h1 span {
+            color: var(--primary);
+        }
+        
+        .services-hero p {
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 12px auto 0;
+        }
+        
+        .services-detail {
+            padding: 60px 0;
+        }
+        
+        .service-full-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 50px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .service-full-card:hover {
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .service-full-card:nth-child(even) {
+            direction: ltr;
+        }
+        
+        .service-full-card:nth-child(even) .service-text {
+            direction: rtl;
+        }
+        
+        .service-full-card .service-icon-large {
+            font-size: 64px;
+            color: var(--primary);
+            background: rgba(201, 168, 76, 0.08);
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        
+        .service-full-card .service-text h2 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+        
+        .service-full-card .service-text h2 span {
+            color: var(--primary);
+        }
+        
+        .service-full-card .service-text p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        
+        .service-full-card .service-text ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .service-full-card .service-text ul li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-light);
+            font-size: 14px;
+            padding: 4px 0;
+        }
+        
+        .service-full-card .service-text ul li i {
+            color: var(--primary);
+            font-size: 16px;
+        }
+        
+        .service-full-card .service-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        /* Process Section */
+        .process-section {
+            background: var(--light);
+            padding: 60px 0;
+        }
+        
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .process-step {
+            text-align: center;
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .process-step .step-number {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: 800;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        
+        .process-step h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+        
+        .process-step p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        
+        .process-step .arrow {
+            position: absolute;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            font-size: 24px;
+        }
+        
+        .process-step:last-child .arrow {
+            display: none;
+        }
+        
+        @media (max-width: 1024px) {
+            .service-full-card {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+            
+            .service-full-card:nth-child(even) {
+                direction: rtl;
+            }
+            
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .process-step .arrow {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .services-hero h1 {
+                font-size: 30px;
+            }
+            
+            .service-full-card {
+                padding: 20px;
+            }
+            
+            .service-full-card .service-icon-large {
+                width: 80px;
+                height: 80px;
+                font-size: 40px;
+            }
+            
+            .service-full-card .service-text h2 {
+                font-size: 22px;
+            }
+            
+            .service-full-card .service-image img {
+                height: 200px;
+            }
+            
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="AMTC" class="logo-img">
+                        <div class="logo-text">
+                            <span class="logo-title">AMTC</span>
+                            <span class="logo-sub">أوتاد المنارات المتقدمة</span>
+                        </div>
+                    </a>
+                </div>
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="projects.html">المشاريع</a></li>
+                        <li><a href="services.html" class="active">الخدمات</a></li>
+                        <li><a href="careers.html">الوظائف</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="lang-switcher">
+                    <a href="#" class="active">AR</a><span>|</span><a href="#">EN</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- HERO -->
+    <section class="services-hero">
+        <div class="container">
+            <span class="section-tag">خدماتنا</span>
+            <h1>خدمات <span>متكاملة</span></h1>
+            <p>نقدم لك حلولاً شاملة تغطي جميع احتياجاتك من التصنيع إلى الصيانة</p>
+        </div>
+    </section>
+    
+    <!-- SERVICES DETAIL -->
+    <section class="services-detail">
+        <div class="container">
+            
+            <!-- Service 1: Manufacturing -->
+            <div class="service-full-card">
+                <div class="service-text">
+                    <div class="service-icon-large"><i class="fas fa-industry"></i></div>
+                    <h2>التصنيع <span>حسب الطلب</span></h2>
+                    <p>
+                        نصنع أعمدة الإنارة وجميع الملحقات وفق المواصفات الدقيقة التي تطلبها، 
+                        باستخدام أحدث تقنيات التصنيع وأعلى معايير الجودة.
+                    </p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> تصنيع حسب المواصفات المطلوبة</li>
+                        <li><i class="fas fa-check-circle"></i> استخدام أفضل المواد الخام</li>
+                        <li><i class="fas fa-check-circle"></i> مراقبة جودة على كل مراحل الإنتاج</li>
+                        <li><i class="fas fa-check-circle"></i> شهادات جودة معتمدة</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">اطلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+                </div>
+                <div class="service-image">
+                    <img src="images/services/manufacturing.jpg" alt="التصنيع حسب الطلب">
+                </div>
+            </div>
+            
+            <!-- Service 2: Consulting -->
+            <div class="service-full-card">
+                <div class="service-text">
+                    <div class="service-icon-large"><i class="fas fa-chart-line"></i></div>
+                    <h2>الاستشارات <span>الفنية</span></h2>
+                    <p>
+                        يضم فريقنا نخبة من المهندسين والفنيين المتخصصين لتقديم الاستشارات الفنية 
+                        وتصميم الحلول المثلى لمشاريع الإنارة.
+                    </p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> دراسات الجدوى الفنية</li>
+                        <li><i class="fas fa-check-circle"></i> تصميم أنظمة الإنارة</li>
+                        <li><i class="fas fa-check-circle"></i> اختيار المنتجات المناسبة</li>
+                        <li><i class="fas fa-check-circle"></i> دعم فني أثناء التنفيذ</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">استشر خبراءنا <i class="fas fa-arrow-left"></i></a>
+                </div>
+                <div class="service-image">
+                    <img src="images/services/consulting.jpg" alt="الاستشارات الفنية">
+                </div>
+            </div>
+            
+            <!-- Service 3: Maintenance -->
+            <div class="service-full-card">
+                <div class="service-text">
+                    <div class="service-icon-large"><i class="fas fa-tools"></i></div>
+                    <h2>الصيانة <span>والدعم</span></h2>
+                    <p>
+                        نقدم خدمات صيانة دورية وفورية لأنظمة الإنارة لضمان استمرارية العمل 
+                        وكفاءة الأداء على المدى الطويل.
+                    </p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> صيانة دورية مجدولة</li>
+                        <li><i class="fas fa-check-circle"></i> صيانة طارئة على مدار الساعة</li>
+                        <li><i class="fas fa-check-circle"></i> فحص واختبار دوري للمعدات</li>
+                        <li><i class="fas fa-check-circle"></i> عقود صيانة طويلة الأجل</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">اطلب خدمة الصيانة <i class="fas fa-arrow-left"></i></a>
+                </div>
+                <div class="service-image">
+                    <img src="images/services/maintenance.jpg" alt="الصيانة والدعم">
+                </div>
+            </div>
+            
+            <!-- Service 4: Supply -->
+            <div class="service-full-card">
+                <div class="service-text">
+                    <div class="service-icon-large"><i class="fas fa-truck"></i></div>
+                    <h2>التوريد <span>السريع</span></h2>
+                    <p>
+                        نمتلك نظاماً لوجستياً متكاملاً يضمن توريد المنتجات في أسرع وقت ممكن 
+                        وبأعلى مستويات الجودة والموثوقية.
+                    </p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> توريد سريع للمنتجات</li>
+                        <li><i class="fas fa-check-circle"></i> تغطية جميع مناطق المملكة</li>
+                        <li><i class="fas fa-check-circle"></i> أسطول نقل مجهز</li>
+                        <li><i class="fas fa-check-circle"></i> متابعة الشحنات لحظة بلحظة</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">استفسر عن التوريد <i class="fas fa-arrow-left"></i></a>
+                </div>
+                <div class="service-image">
+                    <img src="images/services/supply.jpg" alt="التوريد السريع">
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    
+    <!-- PROCESS -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">آلية العمل</span>
+                <h2 class="section-title">كيف <span>نعمل</span></h2>
+                <p class="section-desc">خطوات بسيطة تبدأ من طلبك وحتى التسليم النهائي</p>
+            </div>
+            
+            <div class="process-grid">
+                <div class="process-step">
+                    <span class="step-number">1</span>
+                    <h4>طلبك</h4>
+                    <p>تواصل معنا وأخبرنا احتياجاتك ومتطلبات مشروعك</p>
+                    <span class="arrow"><i class="fas fa-chevron-left"></i></span>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">2</span>
+                    <h4>الدراسة والتصميم</h4>
+                    <p>نقوم بدراسة احتياجاتك وتصميم الحل المناسب</p>
+                    <span class="arrow"><i class="fas fa-chevron-left"></i></span>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">3</span>
+                    <h4>التصنيع</h4>
+                    <p>نصنع منتجاتك بأعلى معايير الجودة في وقت قياسي</p>
+                    <span class="arrow"><i class="fas fa-chevron-left"></i></span>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">4</span>
+                    <h4>التسليم</h4>
+                    <p>نقوم بتوريد وتركيب المنتجات مع دعم فني متواصل</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="AMTC">
+                        <span>AMTC</span>
+                    </div>
+                    <p>شركة أوتاد المنارات المتقدمة (AMTC) متخصصة في تصنيع وتوريد أعمدة الإنارة وملحقاتها.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="projects.html">المشاريع</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="careers.html">الوظائف</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>منتجاتنا</h4>
+                    <ul>
+                        <li><a href="products.html">أعمدة إنارة فولاذية</a></li>
+                        <li><a href="products.html">أبراج إنارة عالية</a></li>
+                        <li><a href="products.html">كابات إنارة</a></li>
+                        <li><a href="products.html">قواعد وملحقات</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>تواصل معنا</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i><span>الرياض، السعودية</span></li>
+                        <li><i class="fas fa-phone-alt"></i><span>+966 12 345 6789</span></li>
+                        <li><i class="fab fa-whatsapp"></i><span>+966 50 123 4567</span></li>
+                        <li><i class="fas fa-envelope"></i><span>info@amtc.com.sa</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>AMTC</strong> - جميع الحقوق محفوظة.</p>
+                <p>تصميم وتطوير <span>AMTC Team</span></p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
